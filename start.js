@@ -4,15 +4,15 @@ module.exports = {
     {
       method: "shell.run",
       params: {
-        //venv: "../env",                // Edit this to customize the venv folder path
-        venv: "env",                // Edit this to customize the venv folder path
+        venv: "../env",                // Edit this to customize the venv folder path
+        //venv: "env",                // Edit this to customize the venv folder path
         env: { },                   // Edit this to customize environment variables (see documentation)
-        //path: "app/tools",                // Edit this to customize the path to start the shell from
-        path: "app",                // Edit this to customize the path to start the shell from
+        path: "app/tools",                // Edit this to customize the path to start the shell from
+        //path: "app",                // Edit this to customize the path to start the shell from
         message: [
           //"python -m tools.e2e_webui",
-          //"python webui.py --device {{(platform === 'darwin' ? 'mps' : (gpu === 'nvidia' ? 'cuda' : 'cpu'))}}",
-          "python app.py"
+          "python webui.py --device {{(platform === 'darwin' ? 'mps' : (gpu === 'nvidia' ? 'cuda' : 'cpu'))}}",
+          //"python app.py"
         ],
         on: [{
           // The regular expression pattern to monitor.
