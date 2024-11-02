@@ -28,8 +28,17 @@ module.exports = {
         venv: "env",                // Edit this to customize the venv folder path
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
-          "pip install gradio devicetorch",
-          "pip install -r requirements.txt"
+          "pip install -e .",
+          "pip install cachetools livekit livekit-agents"
+        ]
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
+        path: "app/tools",                // Edit this to customize the path to start the shell from
+        message: [
+          "huggingface-cli download fishaudio/fish-speech-1.4 --local-dir checkpoints/fish-speech-1.4"
         ]
       }
     },
