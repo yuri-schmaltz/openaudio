@@ -7,8 +7,8 @@ module.exports = {
   menu: async (kernel, info) => {
     let installed = info.exists("app/env")
     let running = {
-      install: info.running("install2.js"),
-      start: info.running("start2.js"),
+      install: info.running("install.js"),
+      start: info.running("starts.js"),
       update: info.running("update.js"),
       reset: info.running("reset.js")
     }
@@ -17,11 +17,11 @@ module.exports = {
         default: true,
         icon: "fa-solid fa-plug",
         text: "Installing",
-        href: "install2.js",
+        href: "install.js",
       }]
     } else if (installed) {
       if (running.start) {
-        let local = info.local("start2.js")
+        let local = info.local("starts.js")
         if (local && local.url) {
           return [{
             default: true,
@@ -31,14 +31,14 @@ module.exports = {
           }, {
             icon: 'fa-solid fa-terminal',
             text: "Terminal",
-            href: "start2.js",
+            href: "starts.js",
           }]
         } else {
           return [{
             default: true,
             icon: 'fa-solid fa-terminal',
             text: "Terminal",
-            href: "start2.js",
+            href: "starts.js",
           }]
         }
       } else if (running.update) {
@@ -60,7 +60,7 @@ module.exports = {
           default: true,
           icon: "fa-solid fa-power-off",
           text: "Start",
-          href: "start2.js",
+          href: "starts.js",
         }, {
           icon: "fa-solid fa-plug",
           text: "Update",
@@ -68,7 +68,7 @@ module.exports = {
         }, {
           icon: "fa-solid fa-plug",
           text: "Install",
-          href: "install2.js",
+          href: "install.js",
         }, {
           icon: "fa-regular fa-circle-xmark",
           text: "Reset",
@@ -80,7 +80,7 @@ module.exports = {
         default: true,
         icon: "fa-solid fa-plug",
         text: "Install",
-        href: "install2.js",
+        href: "install.js",
       }]
     }
   }
