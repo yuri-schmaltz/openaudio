@@ -7,7 +7,7 @@ module.exports = {
   menu: async (kernel, info) => {
     let installed = info.exists("app/env")
     let running = {
-      install: info.running("install.js"),
+      install: info.running("install2.js"),
       start: info.running("start2.js"),
       update: info.running("update.js"),
       reset: info.running("reset.js")
