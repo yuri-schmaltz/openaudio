@@ -8,7 +8,7 @@ module.exports = {
     let installed = info.exists("app/env")
     let running = {
       install: info.running("install.js"),
-      start: info.running("start.js"),
+      start: info.running("start2.js"),
       update: info.running("update.js"),
       reset: info.running("reset.js")
     }
@@ -17,11 +17,11 @@ module.exports = {
         default: true,
         icon: "fa-solid fa-plug",
         text: "Installing",
-        href: "install.js",
+        href: "install2.js",
       }]
     } else if (installed) {
       if (running.start) {
-        let local = info.local("start.js")
+        let local = info.local("start2.js")
         if (local && local.url) {
           return [{
             default: true,
@@ -31,14 +31,14 @@ module.exports = {
           }, {
             icon: 'fa-solid fa-terminal',
             text: "Terminal",
-            href: "start.js",
+            href: "start2.js",
           }]
         } else {
           return [{
             default: true,
             icon: 'fa-solid fa-terminal',
             text: "Terminal",
-            href: "start.js",
+            href: "start2.js",
           }]
         }
       } else if (running.update) {
@@ -60,7 +60,7 @@ module.exports = {
           default: true,
           icon: "fa-solid fa-power-off",
           text: "Start",
-          href: "start.js",
+          href: "start2.js",
         }, {
           icon: "fa-solid fa-plug",
           text: "Update",
@@ -68,7 +68,7 @@ module.exports = {
         }, {
           icon: "fa-solid fa-plug",
           text: "Install",
-          href: "install.js",
+          href: "install2.js",
         }, {
           icon: "fa-regular fa-circle-xmark",
           text: "Reset",
@@ -80,7 +80,7 @@ module.exports = {
         default: true,
         icon: "fa-solid fa-plug",
         text: "Install",
-        href: "install.js",
+        href: "install2.js",
       }]
     }
   }
