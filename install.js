@@ -38,6 +38,12 @@ module.exports = {
     {
       method: "shell.run",
       params: {
+        message: "conda install -y -c conda-forge huggingface_hub"
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
         path: "app/tools",                // Edit this to customize the path to start the shell from
         message: [
           "huggingface-cli download fishaudio/fish-speech-1.4 --local-dir checkpoints/fish-speech-1.4"
