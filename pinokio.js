@@ -2,7 +2,7 @@ const path = require('path')
 module.exports = {
   version: "2.0",
   title: "fish",
-  description: "",
+  description: "Multilingual Text-to-Speech with Voice Cloning (Supports: English, Japanese, Korean, Chinese, French, German, Arabic, and Spanish) https://github.com/fishaudio/fish-speech",
   icon: "icon.png",
   menu: async (kernel, info) => {
     let installed = info.exists("app/env")
