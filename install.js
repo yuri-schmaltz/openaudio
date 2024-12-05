@@ -46,7 +46,7 @@ module.exports = {
       params: {
         path: "app/tools",                // Edit this to customize the path to start the shell from
         message: [
-          "huggingface-cli download fishaudio/fish-speech-1.4 --local-dir checkpoints/fish-speech-1.4"
+          "huggingface-cli download cocktailpeanut/f15 --local-dir checkpoints/fish-speech-1.5"
         ]
       }
     },
