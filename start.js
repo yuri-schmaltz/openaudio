@@ -11,7 +11,7 @@ module.exports = {
         //path: "app",                // Edit this to customize the path to start the shell from
         message: [
           //"python -m tools.e2e_webui",
-          "python webui.py --device {{(platform === 'darwin' ? 'mps' : (gpu === 'nvidia' ? 'cuda' : 'cpu'))}}",
+          "python run_webui.py --device {{(platform === 'darwin' ? 'mps' : (gpu === 'nvidia' ? 'cuda' : 'cpu'))}}",
           //"python app.py"
         ],
         on: [{
