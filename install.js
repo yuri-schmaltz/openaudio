@@ -10,6 +10,12 @@ module.exports = {
         ]
       }
     },
+    {
+      method: "shell.run",
+      params: {
+        message: "conda install -y -c conda-forge huggingface_hub portaudio"
+      }
+    },
     // Delete this step if your project does not use torch
     {
       method: "script.start",
@@ -31,14 +37,8 @@ module.exports = {
         message: [
           //"pip install -r requirements.txt"
           "pip install -e .",
-          "pip install cachetools livekit livekit-agents"
+          "pip install cachetools livekit==0.18.1 livekit-agents==0.12.1"
         ]
-      }
-    },
-    {
-      method: "shell.run",
-      params: {
-        message: "conda install -y -c conda-forge huggingface_hub portaudio"
       }
     },
     {
@@ -46,7 +46,7 @@ module.exports = {
       params: {
         path: "app/tools",                // Edit this to customize the path to start the shell from
         message: [
-          "huggingface-cli download fishaudio/fish-speech-1.4 --local-dir checkpoints/fish-speech-1.4"
+          "huggingface-cli download cocktailpeanut/f15 --local-dir checkpoints/fish-speech-1.5"
         ]
       }
     },
