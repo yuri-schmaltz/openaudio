@@ -36,24 +36,25 @@ module.exports = {
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
           //"pip install -r requirements.txt"
-          "pip install -e .",
-          "pip install cachetools livekit==0.18.1 livekit-agents==0.12.1"
+          "uv pip install -e .",
+          "uv pip install cachetools livekit==0.18.1 livekit-agents==0.12.1"
         ]
       }
     },
+//    {
+//      method: "hf.download",
+//      params: {
+//        path: "app/tools",
+//        "_": [ "cocktailpeanut/f15" ],
+//        "local-dir": "checkpoints/fish-speech-1.5"
+//      }
+//    },
     {
-      method: "shell.run",
+      method: "hf.download",
       params: {
-        path: "app/tools",                // Edit this to customize the path to start the shell from
-        message: [
-          "huggingface-cli download cocktailpeanut/f15 --local-dir checkpoints/fish-speech-1.5"
-        ]
-      }
-    },
-    {
-      method: "fs.link",
-      params: {
-        venv: "app/env"
+        path: "app/tools",
+        "_": [ "cocktailpeanut/oa" ],
+        "local-dir": "checkpoints/openaudio-s1-mini"
       }
     }
   ]
