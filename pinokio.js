@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
   version: "3.7",
-  title: "fish",
+  title: "OpenAudio",
   description: "Multilingual Text-to-Speech with Voice Cloning (Supports: English, Japanese, Korean, Chinese, French, German, Arabic, and Spanish) https://github.com/fishaudio/fish-speech",
   icon: "icon.png",
   menu: async (kernel, info) => {
