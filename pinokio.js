@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
-  version: "2.0",
-  title: "fish",
+  version: "3.7",
+  title: "OpenAudio",
   description: "Multilingual Text-to-Speech with Voice Cloning (Supports: English, Japanese, Korean, Chinese, French, German, Arabic, and Spanish) https://github.com/fishaudio/fish-speech",
   icon: "icon.png",
   menu: async (kernel, info) => {
@@ -10,7 +10,8 @@ module.exports = {
       install: info.running("install.js"),
       start: info.running("start.js"),
       update: info.running("update.js"),
-      reset: info.running("reset.js")
+      reset: info.running("reset.js"),
+      link: info.running("link.js")
     }
     if (running.install) {
       return [{
@@ -55,6 +56,13 @@ module.exports = {
           text: "Resetting",
           href: "reset.js",
         }]
+      } else if (running.link) {
+        return [{
+          default: true,
+          icon: 'fa-solid fa-terminal',
+          text: "Deduplicating",
+          href: "link.js",
+        }]
       } else {
         return [{
           default: true,
@@ -70,9 +78,14 @@ module.exports = {
           text: "Install",
           href: "install.js",
         }, {
+          icon: "fa-solid fa-file-zipper",
+          text: "<div><strong>Save Disk Space</strong><div>Deduplicates redundant library files</div></div>",
+          href: "link.js",
+        }, {
           icon: "fa-regular fa-circle-xmark",
-          text: "Reset",
+          text: "<div><strong>Reset</strong><div>Revert to pre-install state</div></div>",
           href: "reset.js",
+          confirm: "Are you sure you wish to reset the app?"
         }]
       }
     } else {
