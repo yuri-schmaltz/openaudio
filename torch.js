@@ -1,3 +1,9 @@
+const TORCH_VERSION = "2.4.1";
+const TORCHAUDIO_VERSION = "2.4.1";
+function install(pkgs, index) {
+  return `if command -v uv >/dev/null; then uv pip install ${pkgs}${index ? ' --index-url ' + index : ''}; else pip install ${pkgs}${index ? ' --index-url ' + index : ''}; fi`;
+}
+
 module.exports = {
   run: [
     // nvidia 50 series
@@ -7,9 +13,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": [
-          "uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128"
-        ]
+        "message": install("torch torchvision torchaudio", "https://download.pytorch.org/whl/cu128")
       },
       "next": null
     },
@@ -20,7 +24,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "uv pip install torch==2.4.1 torchaudio==2.4.1 {{args && args.xformers ? 'xformers' : ''}}  --index-url https://download.pytorch.org/whl/cu121"
+        "message": install(`torch==${TORCH_VERSION} torchaudio==${TORCHAUDIO_VERSION} {{args && args.xformers ? 'xformers' : ''}}`, "https://download.pytorch.org/whl/cu121")
       }
     },
     // windows amd
@@ -30,7 +34,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "uv pip install torch-directml torchaudio numpy==1.26.4"
+        "message": install("torch-directml torchaudio numpy==1.26.4")
       }
     },
     // windows cpu
@@ -40,7 +44,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "uv pip install torch==2.4.1 torchaudio==2.4.1"
+        "message": install(`torch==${TORCH_VERSION} torchaudio==${TORCHAUDIO_VERSION}`)
       }
     },
     // apple mac
@@ -50,7 +54,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "uv pip install torch==2.4.1 torchaudio==2.4.1"
+        "message": install(`torch==${TORCH_VERSION} torchaudio==${TORCHAUDIO_VERSION}`)
       }
     },
     // intel mac
@@ -60,7 +64,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "uv pip install torch==2.1.2 torchaudio==2.1.2"
+        "message": install("torch==2.1.2 torchaudio==2.1.2")
       }
     },
     // linux nvidia
@@ -70,7 +74,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "uv pip install torch==2.4.1 torchaudio==2.4.1 {{args && args.xformers ? 'xformers' : ''}}  --index-url https://download.pytorch.org/whl/cu121"
+        "message": install(`torch==${TORCH_VERSION} torchaudio==${TORCHAUDIO_VERSION} {{args && args.xformers ? 'xformers' : ''}}`, "https://download.pytorch.org/whl/cu121")
       }
     },
     // linux rocm (amd)
@@ -80,7 +84,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "uv pip install torch==2.4.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/rocm6.0"
+        "message": install(`torch==${TORCH_VERSION} torchaudio==${TORCHAUDIO_VERSION}`, "https://download.pytorch.org/whl/rocm6.0")
       }
     },
     // linux cpu
@@ -90,7 +94,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "uv pip install torch==2.4.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cpu"
+        "message": install(`torch==${TORCH_VERSION} torchaudio==${TORCHAUDIO_VERSION}`, "https://download.pytorch.org/whl/cpu")
       }
     }
   ]
